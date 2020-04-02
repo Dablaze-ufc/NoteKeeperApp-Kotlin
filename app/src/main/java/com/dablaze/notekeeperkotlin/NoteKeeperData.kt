@@ -9,4 +9,5 @@ data class CourseInfo(val courseId: String,
 
 data class NoteInfo(var course: CourseInfo,
                     var tittle: String,
+
                     var text:String)
