@@ -1,5 +1,7 @@
 package com.dablaze.notekeeperkotlin
 
+import java.io.Serializable
+
 data class CourseInfo(val courseId: String,
                       val tittle: String) {
     override fun toString(): String {
@@ -9,4 +11,4 @@ data class CourseInfo(val courseId: String,
 
 data class NoteInfo(var course: CourseInfo,
                     var tittle: String,
-                    var text:String)
+                    var text:String) : Serializable
