@@ -32,8 +32,10 @@ class HomeActivity : AppCompatActivity() {
     private fun initDestinationListener(){
         mNavController.addOnDestinationChangedListener{ _, destination, _ ->
            when(destination.id){
-               R.id.FirstFragment -> showToolbar()
-               R.id.SecondFragment -> hideToolbar()
+               R.id.FirstFragment -> {showToolbar()
+                                        showFAB()}
+               R.id.SecondFragment -> {hideToolbar()
+                                        hideFAB()}
            }
 
         }
@@ -45,6 +47,13 @@ class HomeActivity : AppCompatActivity() {
 
     private fun hideToolbar() {
         toolbar.isVisible  = false
+    }
+    private fun hideFAB(){
+        fab.isVisible = false
+    }
+
+    private fun showFAB(){
+        fab.isVisible = true
     }
 
 }

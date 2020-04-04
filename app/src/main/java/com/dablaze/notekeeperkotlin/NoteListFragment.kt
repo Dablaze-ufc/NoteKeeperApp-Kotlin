@@ -32,7 +32,7 @@ class NoteListFragment : Fragment() {
 
         listView.setOnItemClickListener{parent, view, position, id ->
             val bundle = Bundle()
-            bundle.putInt(EXTRA_NOTE_POSITION, position)
+            bundle.putInt(NOTE_POSITION, position)
             Navigation.findNavController(view).navigate(R.id.SecondFragment,bundle)
         }
 

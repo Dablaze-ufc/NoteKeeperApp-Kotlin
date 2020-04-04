@@ -9,6 +9,6 @@ data class CourseInfo(val courseId: String,
     }
 }
 
-data class NoteInfo(var course: CourseInfo,
-                    var tittle: String,
-                    var text:String) : Serializable
+data class NoteInfo(var course: CourseInfo? = null,
+                    var tittle: String? = null,
+                    var text:String? = null) : Serializable

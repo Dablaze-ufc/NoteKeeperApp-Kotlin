@@ -45,6 +45,11 @@ class NoteFragment : Fragment() {
         return root
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(NOTE_POSITION, notePosition)
+    }
+
     private fun nextNote() {
             ++notePosition
             displayNotes()
@@ -61,11 +66,14 @@ class NoteFragment : Fragment() {
         spinnerCourses.adapter = adapterCourses
 
         val args = arguments
-        notePosition = args?.getInt(EXTRA_NOTE_POSITION) ?: POSITION_NOT_SET
+        notePosition = savedInstanceState?.getInt(NOTE_POSITION, POSITION_NOT_SET) ?:  args?.getInt(NOTE_POSITION)?: POSITION_NOT_SET
+
 
         if (notePosition != POSITION_NOT_SET)
             displayNotes()
-        else toolbar.title = "New Note"
+        else {toolbar.title = "New Note"
+                DataManager.notes.add(NoteInfo())
+                notePosition = DataManager.notes.lastIndex}
 
     }
 
