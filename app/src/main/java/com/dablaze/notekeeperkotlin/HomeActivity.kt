@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.activity_note_list.*
+import kotlinx.android.synthetic.main.activity_main.*
 
-class NoteListActivity : AppCompatActivity() {
+class HomeActivity : AppCompatActivity() {
     private lateinit var mNavController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_note_list)
+        setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
         mNavController = Navigation.findNavController(this,R.id.fragment)

@@ -12,7 +12,7 @@ import androidx.navigation.Navigation
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class FirstFragment : Fragment() {
+class NoteListFragment : Fragment() {
     private lateinit var listView: ListView
 
     override fun onCreateView(
@@ -20,7 +20,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val root =inflater.inflate(R.layout.fragment_first, container, false)
+        val root =inflater.inflate(R.layout.fragment_note_list, container, false)
         listView = root.findViewById(R.id.listNotes)
         return root
     }

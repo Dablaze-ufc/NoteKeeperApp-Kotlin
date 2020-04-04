@@ -8,12 +8,12 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_second.*
+import kotlinx.android.synthetic.main.fragment_note.*
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
-class SecondFragment : Fragment() {
+class NoteFragment : Fragment() {
 
     private lateinit var spinnerCourses: Spinner
     private var notePosition = POSITION_NOT_SET
@@ -24,7 +24,7 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-      val root =inflater.inflate(R.layout.fragment_second, container, false)
+      val root =inflater.inflate(R.layout.fragment_note, container, false)
         toolbar = root.findViewById<Toolbar>(R.id.toolbar)
         toolbar.inflateMenu(R.menu.menu_main)
         toolbar.setOnMenuItemClickListener { item ->
