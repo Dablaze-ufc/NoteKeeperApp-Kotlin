@@ -12,6 +12,7 @@ import androidx.navigation.Navigation
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
+@Suppress("NAME_SHADOWING")
 class NoteListFragment : Fragment() {
     private lateinit var listView: ListView
 
@@ -30,7 +31,7 @@ class NoteListFragment : Fragment() {
         listView.adapter = ArrayAdapter(requireContext(),android.R.layout.simple_list_item_1,
         DataManager.notes)
 
-        listView.setOnItemClickListener{parent, view, position, id ->
+        listView.setOnItemClickListener{ _, view, position, _ ->
             val bundle = Bundle()
             bundle.putInt(NOTE_POSITION, position)
             Navigation.findNavController(view).navigate(R.id.SecondFragment,bundle)
