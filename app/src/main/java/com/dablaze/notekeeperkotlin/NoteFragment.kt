@@ -77,4 +77,16 @@ class NoteFragment : Fragment() {
         textNoteText.editText?.setText(note.text)
         spinnerCourses.setSelection(coursePosition)
     }
+
+    override fun onPause() {
+        super.onPause()
+        saveNote()
+    }
+
+    private fun saveNote() {
+        val note = DataManager.notes[notePosition]
+        note.tittle = textNoteTittle.editText?.text.toString()
+        note.text = textNoteText.editText?.text.toString()
+        note.course = spinnerCourses.selectedItem as CourseInfo
+    }
 }
