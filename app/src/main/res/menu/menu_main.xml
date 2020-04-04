@@ -4,8 +4,9 @@
     tools:context="com.dablaze.notekeeperkotlin.MainActivity">
     <item
         android:id="@+id/action_next"
-        android:icon="@android:drawable/ic_media_play"
-        android:title="@string/next" />
+        android:icon="@drawable/ic_forward_white_24dp"
+        android:title="@string/next"
+        app:showAsAction="ifRoom|withText" />
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"

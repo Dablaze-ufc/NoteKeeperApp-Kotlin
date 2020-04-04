@@ -25,25 +25,29 @@ class NoteFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
       val root =inflater.inflate(R.layout.fragment_note, container, false)
-        toolbar = root.findViewById<Toolbar>(R.id.toolbar)
+        toolbar = root.findViewById(R.id.toolbar)
         toolbar.inflateMenu(R.menu.menu_main)
+
         toolbar.setOnMenuItemClickListener { item ->
             when(item.itemId){
                 R.id.action_next ->{
+                    if (notePosition < DataManager.notes.lastIndex){
                     nextNote()
+                    }
+
                     true
                 }
                 else -> false
             }
         }
         spinnerCourses = root.findViewById(R.id.spinnerCourses)
-
+        setHasOptionsMenu(true)
         return root
     }
 
     private fun nextNote() {
-        ++notePosition
-        displayNotes()
+            ++notePosition
+            displayNotes()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
