@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.fragment_note.*
 
 /**
@@ -32,17 +33,25 @@ class NoteFragment : Fragment() {
             when(item.itemId){
                 R.id.action_next ->{
                     if (notePosition < DataManager.notes.lastIndex){
+                        showMessage("Note not found")
                     nextNote()
                     }
 
                     true
                 }
-                else -> false
+                else -> {
+                    val message = "No more Notes"
+                    showMessage(message)
+                    false}
             }
         }
         spinnerCourses = root.findViewById(R.id.spinnerCourses)
         setHasOptionsMenu(true)
         return root
+    }
+
+    private fun showMessage(message: String) {
+        Snackbar.make(requireView(), message, Snackbar.LENGTH_LONG).show()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
