@@ -9,6 +9,20 @@ object DataManager {
         initializeNotes()
     }
 
+    fun addNote(course:CourseInfo, noteTittle:String, noteText: String): Int {
+        val note = NoteInfo(course,noteTittle,noteText)
+        notes.add(note)
+        return notes.lastIndex
+    }
+
+    fun findNote(course:CourseInfo, noteTittle:String, noteText: String): NoteInfo? {
+        for (note in notes)
+            if (course == note.course && noteTittle == note.tittle
+                && noteText == note.text )
+                return note
+        return null
+    }
+
     private fun initializeCourses(){
         var course = CourseInfo("android_intents"," Android Programming with Intents")
         courses[course.courseId] = course

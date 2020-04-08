@@ -80,10 +80,16 @@ class NoteFragment : Fragment() {
 
         if (notePosition != POSITION_NOT_SET)
             displayNotes()
-        else {toolbar.title = "New Note"
-                DataManager.notes.add(NoteInfo())
-                notePosition = DataManager.notes.lastIndex}
+        else {
+            createNewNote()
+        }
 
+    }
+
+    private fun createNewNote() {
+        toolbar.title = "New Note"
+        DataManager.notes.add(NoteInfo())
+        notePosition = DataManager.notes.lastIndex
     }
 
     private fun displayNotes() {
