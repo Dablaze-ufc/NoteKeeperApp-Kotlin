@@ -33,8 +33,9 @@ class NoteFragment : Fragment() {
             when(item.itemId){
                 R.id.action_next ->{
                     if (notePosition < DataManager.notes.lastIndex){
-                        showMessage("Note not found")
                     nextNote()
+                    }else{
+                        showMessage("Note not found")
                     }
 
                     true
