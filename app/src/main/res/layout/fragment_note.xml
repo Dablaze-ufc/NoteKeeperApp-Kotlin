@@ -38,6 +38,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
 
+        android:id="@+id/textInputLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -64,12 +65,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/spinnerCourses"
         app:layout_constraintStart_toStartOf="@+id/spinnerCourses"
-        app:layout_constraintTop_toBottomOf="@+id/textNoteTittle">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/textNoteText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"/>
+            android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
