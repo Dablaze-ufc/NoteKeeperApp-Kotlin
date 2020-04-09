@@ -95,9 +95,9 @@ class NoteFragment : Fragment() {
     private fun displayNotes() {
         val note = DataManager.notes[notePosition]
         val coursePosition = DataManager.courses.values.indexOf(note.course)
-        textNoteTittle.editText?.setText(note.tittle)
+        textNoteTittle.setText(note.tittle)
         toolbar.title = note.tittle
-        textNoteText.editText?.setText(note.text)
+        textNoteText.setText(note.text)
         spinnerCourses.setSelection(coursePosition)
     }
 
@@ -108,8 +108,8 @@ class NoteFragment : Fragment() {
 
     private fun saveNote() {
         val note = DataManager.notes[notePosition]
-        note.tittle = textNoteTittle.editText?.text.toString()
-        note.text = textNoteText.editText?.text.toString()
+        note.tittle = textNoteTittle.text.toString()
+        note.text = textNoteText.text.toString()
         note.course = spinnerCourses.selectedItem as CourseInfo
     }
 }
