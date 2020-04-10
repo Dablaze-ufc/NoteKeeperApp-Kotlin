@@ -20,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         fab.setOnClickListener {
-            mNavController.navigate(R.id.action_FirstFragment_to_SecondFragment)
+            mNavController.navigate(R.id.action_NoteListFragment_to_NoteFragment)
         }
         initDestinationListener()
     }
@@ -32,9 +32,9 @@ class HomeActivity : AppCompatActivity() {
     private fun initDestinationListener(){
         mNavController.addOnDestinationChangedListener{ _, destination, _ ->
            when(destination.id){
-               R.id.FirstFragment -> {showToolbar()
+               R.id.NoteListFragment -> {showToolbar()
                                         showFAB()}
-               R.id.SecondFragment -> {hideToolbar()
+               R.id.NoteFragment -> {hideToolbar()
                                         hideFAB()}
            }
 

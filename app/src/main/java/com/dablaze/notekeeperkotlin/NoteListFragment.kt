@@ -4,17 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
 @Suppress("NAME_SHADOWING")
 class NoteListFragment : Fragment() {
-    private lateinit var listView: ListView
+    private lateinit var listView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,21 +21,21 @@ class NoteListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val root =inflater.inflate(R.layout.fragment_note_list, container, false)
-        listView = root.findViewById(R.id.listNotes)
+        listView = root.findViewById(R.id.listItems)
         return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        listView.adapter = ArrayAdapter(requireContext(),android.R.layout.simple_list_item_1,
-        DataManager.notes)
+        listView.layoutManager = LinearLayoutManager(requireContext())
 
-        listView.setOnItemClickListener{ _, view, position, _ ->
-            val bundle = Bundle()
-            bundle.putInt(NOTE_POSITION, position)
-            Navigation.findNavController(view).navigate(R.id.SecondFragment,bundle)
-        }
+        listView.adapter = NoteRecyclerAdapter(requireContext(),DataManager.notes)
 
 
+    }
+
+    override fun onResume() {
+        super.onResume()
+        listView.adapter?.notifyDataSetChanged()
     }
 }
