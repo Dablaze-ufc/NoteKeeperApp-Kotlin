@@ -1,4 +1,4 @@
-package com.dablaze.notekeeperkotlin
+package com.dablaze.notekeeperkotlin.ui.notesList
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dablaze.notekeeperkotlin.DataManager
+import com.dablaze.notekeeperkotlin.R
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -29,7 +31,11 @@ class NoteListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         listView.layoutManager = LinearLayoutManager(requireContext())
 
-        listView.adapter = NoteRecyclerAdapter(requireContext(),DataManager.notes)
+        listView.adapter =
+            NoteRecyclerAdapter(
+                requireContext(),
+                DataManager.notes
+            )
 
 
     }

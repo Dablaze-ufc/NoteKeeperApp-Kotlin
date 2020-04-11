@@ -1,4 +1,4 @@
-package com.dablaze.notekeeperkotlin
+package com.dablaze.notekeeperkotlin.ui.notesList
 
 import android.content.Context
 import android.os.Bundle
@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import com.dablaze.notekeeperkotlin.NOTE_POSITION
+import com.dablaze.notekeeperkotlin.NoteInfo
+import com.dablaze.notekeeperkotlin.R
 
 class NoteRecyclerAdapter(private val context: Context, private val notes:List<NoteInfo>) :
     RecyclerView.Adapter<NoteRecyclerAdapter.NoteViewHolder>() {
